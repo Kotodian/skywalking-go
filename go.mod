@@ -3,18 +3,19 @@ module github.com/apache/skywalking-go
 go 1.19
 
 require (
-	github.com/google/uuid v1.3.0
+	github.com/google/uuid v1.6.0
 	github.com/pkg/errors v0.9.1
-	google.golang.org/grpc v1.55.0
+	google.golang.org/grpc v1.64.0
 	skywalking.apache.org/repo/goapi v0.0.0-20230314034821-0c5a44bb767a
 )
 
 require (
-	github.com/golang/protobuf v1.5.3 // indirect
-	github.com/google/go-cmp v0.5.9 // indirect
-	golang.org/x/net v0.10.0 // indirect
-	golang.org/x/sys v0.8.0 // indirect
-	golang.org/x/text v0.9.0 // indirect
-	google.golang.org/genproto v0.0.0-20230410155749-daa745c078e1 // indirect
-	google.golang.org/protobuf v1.30.0 // indirect
+	github.com/cncf/xds/go v0.0.0-20240318125728-8a4994d93e50 // indirect
+	github.com/envoyproxy/protoc-gen-validate v1.0.4 // indirect
+	github.com/golang/protobuf v1.5.4 // indirect
+	golang.org/x/net v0.24.0 // indirect
+	golang.org/x/sys v0.20.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240318140521-94a12d6c2237 // indirect
+	google.golang.org/protobuf v1.33.0 // indirect
 )

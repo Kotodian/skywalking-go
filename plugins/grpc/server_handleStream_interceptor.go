@@ -28,7 +28,7 @@ type ServerHandleStreamInterceptor struct {
 }
 
 func (h *ServerHandleStreamInterceptor) BeforeInvoke(invocation operator.Invocation) error {
-	stream := invocation.Args()[1].(*nativeStream)
+	stream := invocation.Args()[1].(*nativeServerStream)
 	method := stream.Method()
 	ctx := stream.Context()
 	md, _ := metadata.FromIncomingContext(ctx)

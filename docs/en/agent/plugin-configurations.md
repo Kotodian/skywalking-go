@@ -12,3 +12,4 @@
 | goframe.collect_request_parameters | SW_AGENT_PLUGIN_CONFIG_GOFRAME_COLLECT_REQUEST_PARAMETERS | false         | Collect the parameters of the HTTP request on the server side. |
 | goframe.collect_request_headers    | SW_AGENT_PLUGIN_CONFIG_GOFRAME_COLLECT_REQUEST_HEADERS    |               | Collect the http header of goframe request.                    |
 | goframe.header_length_threshold    | SW_AGENT_PLUGIN_CONFIG_GOFRAME_HEADER_LENGTH_THRESHOLD    | 2048          | Controlling the length limitation of all header values.        |
+| sarama.exclude_topics              | SW_AGENT_PLUGIN_CONFIG_SARAMA_EXCLUDE_TOPICS              |               | Exclude the topics you expect.                                 |

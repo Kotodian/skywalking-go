@@ -1,6 +1,4 @@
-go 1.20
-
-toolchain go1.23.4
+go 1.23.4
 
 use (
 	.
@@ -28,6 +26,7 @@ use (
 	./plugins/pulsar
 	./plugins/rocketmq
 	./plugins/runtimemetrics
+	./plugins/sarama
 	./plugins/segmentio-kafka
 	./plugins/sql
 	./plugins/toolkit-activation

@@ -118,5 +118,7 @@ plugin:
       collect_request_headers: ${SW_AGENT_PLUGIN_CONFIG_GOFRAME_COLLECT_REQUEST_HEADERS:}
       # Controlling the length limitation of all header values
       header_length_threshold: ${SW_AGENT_PLUGIN_CONFIG_GOFRAME_HEADER_LENGTH_THRESHOLD:2048}
+    sarama:
+      exclude_topics: ${SW_AGENT_PLUGIN_CONFIG_SARAMA_EXCLUDE_TOPICS:}
 
 

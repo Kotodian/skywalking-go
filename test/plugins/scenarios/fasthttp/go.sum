@@ -2,7 +2,7 @@ github.com/andybalholm/brotli v1.0.5 h1:8uQZIdzKmjc/iuPu7O2ioW48L81FgatrcpfFmiq/
 github.com/fasthttp/router v1.0.2 h1:rdYdcAmwOLqWuFgc4afa409SYmuw4t0A66K5Ib+GT3I=
 github.com/fasthttp/router v1.0.2/go.mod h1:Myk/ofrwtfiLSCIfbE44+e+PyP3mR6JhZg3AYzqwJI0=
 github.com/klauspost/compress v1.8.2/go.mod h1:RyIbtBH6LamlWaDj8nUwkbUhJ87Yi3uG0guNDohfE1A=
-github.com/klauspost/compress v1.16.7 h1:2mk3MPGNzKyxErAw8YaohYh69+pa4sIQSC0fPGCFR9I=
+github.com/klauspost/compress v1.17.11 h1:In6xLpyWOi1+C7tXUUWv2ot1QvBjxevKAaI6IXrJmUc=
 github.com/klauspost/cpuid v1.2.1/go.mod h1:Pj4uuM528wm8OyEC2QMXAi2YiTZ96dNQPGgoMS4s3ek=
 github.com/savsgio/gotils v0.0.0-20200319105752-a9cc718f6a3f h1:XfUnevLK4O22at3R77FlyQHKwlQs75LELdsH2wRX2KQ=
 github.com/savsgio/gotils v0.0.0-20200319105752-a9cc718f6a3f/go.mod h1:lHhJedqxCoHN+zMtwGNTXWmF0u9Jt363FYRhV6g0CdY=

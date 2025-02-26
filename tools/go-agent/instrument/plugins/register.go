@@ -18,6 +18,7 @@
 package plugins
 
 import (
+	"github.com/Kotodian/skywalking-go/plugins/sarama"
 	traceactivation "github.com/apache/skywalking-go/plugin/trace"
 	"github.com/apache/skywalking-go/plugins/amqp"
 	"github.com/apache/skywalking-go/plugins/core/instrument"
@@ -70,6 +71,7 @@ func init() {
 	registerFramework(amqp.NewInstrument())
 	registerFramework(pulsar.NewInstrument())
 	registerFramework(segmentiokafka.NewInstrument())
+	registerFramework(sarama.NewInstrument())
 	registerFramework(goelasticsearchv8.NewInstrument())
 
 	// fasthttp related instruments

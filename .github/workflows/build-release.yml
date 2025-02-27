@@ -22,9 +22,9 @@ jobs:
           # 获取最近的 tag，没有则默认 v0
           LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0")
           echo "Latest tag: $LATEST_TAG"
-          # 去除前缀 v，获得纯数字
+          # 去除前缀 v，获得纯数字部分
           VERSION_NUMBER=${LATEST_TAG#v}
-          # 自增版本号（简单数字加1，如果需要语义化版本请自行调整逻辑）
+          # 自增版本号（简单数字加1，若有语义化需求请自行调整）
           NEW_VERSION=$((VERSION_NUMBER + 1))
           NEW_TAG="v${NEW_VERSION}"
           echo "New tag: $NEW_TAG"
@@ -52,14 +52,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.18'
+
       - name: Build binary for ${{ matrix.goos }} ${{ matrix.goarch }}
         run: |
-          mkdir -p build
-          # 设置环境变量 GOOS 和 GOARCH 后调用 make build
+          # 获取当前 commit 的短 hash，用于生成文件名
+          HASH=$(git rev-parse --short HEAD)
+          echo "HASH=${HASH}" >> $GITHUB_ENV
+          echo "Building for GOOS=${{ matrix.goos }}, GOARCH=${{ matrix.goarch }}, commit hash: ${HASH}"
+          # 设置环境变量后调用 make build
           GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} make build
-          # 假设 make build 生成的二进制文件名为 your_binary，
-          # 重命名为包含操作系统和架构信息的文件名
-          mv your_binary build/your_binary_${{ matrix.goos }}_${{ matrix.goarch }}
 
       - name: Upload Release Asset for ${{ matrix.goos }}_${{ matrix.goarch }}
         uses: actions/upload-release-asset@v1
@@ -67,6 +72,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.release.outputs.release_url }}
-          asset_path: ./bin/skywalking-go-agent-${{ matrix.goos }}-${{ matrix.goarch }}
-          asset_name: skywalking-go-agent-${{ matrix.goos }}-${{ matrix.goarch }}
+          asset_path: ./bin/skywalking-go-agent-${{ env.HASH }}-${{ matrix.goos }}-${{ matrix.goarch }}
+          asset_name: skywalking-go-agent-${{ env.HASH }}-${{ matrix.goos }}-${{ matrix.goarch }}
           asset_content_type: application/octet-stream

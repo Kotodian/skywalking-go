@@ -19,15 +19,18 @@ jobs:
       - name: Bump version
         id: bump_version
         run: |
-          # 获取最近的 tag，没有则默认 v0
-          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0")
+          # 获取最新的 tag，如果没有则默认为 v1.0.0
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v1.0.0")
           echo "Latest tag: $LATEST_TAG"
-          # 去除前缀 v，获得纯数字部分
-          VERSION_NUMBER=${LATEST_TAG#v}
-          # 自增版本号（简单数字加1，若有语义化需求请自行调整）
-          NEW_VERSION=$((VERSION_NUMBER + 1))
-          NEW_TAG="v${NEW_VERSION}"
+          # 去除前缀 v
+          VERSION=${LATEST_TAG#v}
+          # 使用 '.' 分割版本号
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+          # 小版本号自增
+          NEW_PATCH=$((PATCH + 1))
+          NEW_TAG="v${MAJOR}.${MINOR}.${NEW_PATCH}"
           echo "New tag: $NEW_TAG"
+          # 将新 tag 传递给后续步骤
           echo "new_tag=${NEW_TAG}" >> $GITHUB_OUTPUT
 
       - name: Create Release

@@ -3,6 +3,7 @@ go 1.23.4
 use (
 	.
 	./plugins/amqp
+	./plugins/clickhousegov2
 
 	// define the plugins
 	./plugins/core

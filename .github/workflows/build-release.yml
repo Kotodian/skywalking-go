@@ -15,12 +15,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Bump version
         id: bump_version
         run: |
           # 获取最新的 tag，如果没有则默认为 v1.0.0
-          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v1.0.0")
+          LATEST_TAG=$(git describe --tags --abbrev=0)
           echo "Latest tag: $LATEST_TAG"
           # 去除前缀 v
           VERSION=${LATEST_TAG#v}

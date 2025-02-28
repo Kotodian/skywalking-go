@@ -21,6 +21,7 @@ import (
 	"github.com/Kotodian/skywalking-go/plugins/sarama"
 	traceactivation "github.com/apache/skywalking-go/plugin/trace"
 	"github.com/apache/skywalking-go/plugins/amqp"
+	clickhousegov2 "github.com/apache/skywalking-go/plugins/clickhousegov2"
 	"github.com/apache/skywalking-go/plugins/core/instrument"
 	"github.com/apache/skywalking-go/plugins/dubbo"
 	"github.com/apache/skywalking-go/plugins/echov4"
@@ -91,6 +92,9 @@ func init() {
 
 	// goframe
 	registerFramework(goframe.NewInstrument())
+
+	// clickhouse-go
+	registerFramework(clickhousegov2.NewInstrument())
 }
 
 func registerFramework(ins instrument.Instrument) {
